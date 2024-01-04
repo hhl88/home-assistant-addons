@@ -26,7 +26,7 @@ certificatesResolvers:
   le:
     acme:
       email: "{{ $options.letsencrypt.email }}"
-      storage: "/ssl/traefik/acme.json"
+      storage: "/ssl/traefik/le/acme.json"
   {{- if or (not (has $options.letsencrypt "challenge_type")) (eq $options.letsencrypt.challenge_type "tlsChallenge") }}
       tlsChallenge: {}
   {{- else if eq $options.letsencrypt.challenge_type "httpChallenge" }}

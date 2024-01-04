@@ -1,5 +1,5 @@
 {
-    "name": "Alex's Add-ons Shack",
-    "url": "http://www.github.com/alex3305/home-assistant-addons",
-    "maintainer": "Alex van den Hoogen <homeassistant@alxx.nl>"
-  }
+  "name": "Home assistant Add-ons",
+  "url": "https://www.github.com/hhl88/home-assistant-addons",
+  "maintainer": "Hai Le"
+}

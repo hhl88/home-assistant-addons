@@ -1,10 +1,16 @@
+#################
+# 1 Build Image #
+#################
 ARG BUILD_FROM
-
 FROM $BUILD_FROM
 
 ARG BUILD_ARCH
 ARG TRAEFIK_VERSION
 
+
+##################
+# 2 Modify Image #
+##################
 RUN if [ "${BUILD_ARCH}" == "aarch64" ]; then BUILD_ARCH=arm64; \
     elif [ "${BUILD_ARCH}" == "i386" ]; then BUILD_ARCH=386; \
     elif [ "${BUILD_ARCH}" == "armhf" ]; then BUILD_ARCH=armv7; \
@@ -15,7 +21,28 @@ RUN if [ "${BUILD_ARCH}" == "aarch64" ]; then BUILD_ARCH=arm64; \
     chmod +x /usr/local/bin/traefik && \
     rm -f /tmp/*
 
+
+##################
+# 3 Install apps #
+##################
+# Add rootfs
 COPY rootfs /
+
+
+############
+# 4 Labels #
+############
+
+ARG BUILD_DATE
+ARG BUILD_REF
+ARG BUILD_REPOSITORY
+ARG BUILD_VERSION
+
+RUN echo "Traefik version: ${TRAEFIK_VERSION} ${BUILD_ARCH}"
+RUN echo "Date: ${BUILD_DATE}"
+RUN echo "Ref: ${BUILD_REF}"
+RUN echo "Repo: ${BUILD_REPOSITORY}"
+RUN echo "Version: ${BUILD_VERSION}"
 
 LABEL \
     io.hass.name="Treafik for ${BUILD_ARCH}" \

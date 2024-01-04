@@ -1,0 +1,28 @@
+---
+configuration:
+  log_level:
+    name: Log level
+    description: >-
+      Controls the level of log details the add-on provides.
+  access_logs:
+    name: Access logs 
+    description: >-
+      Whether to enable access logging to standard out.
+      These logs will be shown in the Hass.io Add-On panel.
+  forwarded_headers_insecure:
+    name: Insecure forwarding headers
+    description: >-
+      Enables insecure forwarding headers. When this option is enabled, 
+      the forwarded headers (`X-Forwarded-*`) will not be replaced by 
+      Traefik headers.
+      Only enable this option when you trust your forwarding proxy.
+  dynamic_configuration_path:
+    name: Configuration path
+    description: >-
+      Path to the directory with the dynamic endpoint configuration.
+  letsencrypt:
+    name: Let's Encrypt
+    description: >-
+      Configuration for Let's Encrypt 
+network:
+  7277/tcp: Web interface

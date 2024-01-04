@@ -1,5 +1,8 @@
 # Changelog
 
+## 4.2.3
+* 📈 Updated Traefik to 2.10.7
+
 ## 4.2.2
 * 🐞 Hotfix for update 4.2.1 (#50)
 
