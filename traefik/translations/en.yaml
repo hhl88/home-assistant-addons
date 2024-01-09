@@ -20,6 +20,14 @@ configuration:
     name: Configuration path
     description: >-
       Path to the directory with the dynamic endpoint configuration.
+  http_port:
+    name: HTTP port
+  https_port:
+    name: HTTPS port
+  tcp_port:
+    name: TCP port
+  udp_port:
+    name: UDP port
   letsencrypt:
     name: Let's Encrypt
     description: >-

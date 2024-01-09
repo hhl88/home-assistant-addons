@@ -8,10 +8,34 @@ global:
   sendAnonymousUsage: false
 
 entryPoints:
+  tcp:
+{{- if has $options "tcp_port" }}
+    address: ":{{ $options.tcp_port }}"
+{{- else }}
+    address: ":53"
+{{- end }}
+{{- if has $options "forwarded_headers_insecure" }}
+    forwardedHeaders:
+      insecure: {{ $options.forwarded_headers_insecure }}
+{{- end }}
+  udp:
+{{- if has $options "udp_port" }}
+    address: ":{{ $options.udp_port }}/udp"
+{{- else }}
+    address: ":53/udp"
+{{- end }}
   web:
+{{- if has $options "http_port" }}
+    address: ":{{ $options.http_port }}"
+{{- else }}
     address: ":80"
+{{- end }}   
   web-secure:
+{{- if has $options "https_port" }}
+    address: ":{{ $options.https_port }}"
+{{- else }}
     address: ":443"
+{{- end }}   
 {{- if has $options "forwarded_headers_insecure" }}
     forwardedHeaders:
       insecure: {{ $options.forwarded_headers_insecure }}
