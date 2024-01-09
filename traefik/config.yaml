@@ -1,5 +1,5 @@
 name: Traefik
-version: 4.2.4
+version: 4.2.5
 slug: traefik
 description: |
   Traefik is a modern HTTP reverse proxy and load balancer that makes deploying
@@ -17,13 +17,13 @@ boot: auto
 ports:
   80/tcp: 80
   443/tcp: 443
-  53/tcp: 53
-  53/udp: 53
+  553/tcp: 553
+  554/udp: 554
 ports_description:
   80/tcp: HTTP
   443/tcp: HTTPS
-  53/tcp: TCP
-  53/udp: UDP
+  553/tcp: TCP
+  554/udp: UDP
 ingress: true
 ingress_entry: dashboard/
 hassio_role: default
@@ -38,10 +38,6 @@ options:
   access_logs: false
   forwarded_headers_insecure: false
   dynamic_configuration_path: "/config/traefik/"
-  http_port: 80
-  https_port: 443
-  tcp_port: 53
-  udp_port: 53
   letsencrypt:
     enabled: false
     resolvers: []
@@ -51,10 +47,6 @@ schema:
   access_logs: bool
   forwarded_headers_insecure: bool
   dynamic_configuration_path: str
-  http_port: int?
-  https_port: int?
-  tcp_port: int?
-  udp_port: int?
   letsencrypt:
     enabled: bool
     email: email?
